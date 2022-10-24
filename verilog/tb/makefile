@@ -30,7 +30,7 @@ hex:
 
 clean:
 	rm -rf $(filter-out $(wildcard *.v) makefile $(wildcard *.sv) isa,$(wildcard *))
-	rm -rf isa/hex/
+	rm -rf isa/hex/*.hex
 
 #test
 tt:
