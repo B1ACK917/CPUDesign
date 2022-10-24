@@ -10,18 +10,8 @@ RTLPATH = ../rtl/lab_1/src \
 RTLFILE += $(foreach p,$(RTLPATH),$(wildcard $(p)/*.v $(p)/*.sv))
 
 VCSFLAG = -full64 +v2k -kdb -debug_access+all \
-<<<<<<< Updated upstream
-	-sverilog +vcs+lic+wait +incdir+../rtl/lab_1/src\
-	-timescale=1ns/1ps
-=======
-<<<<<<< HEAD
 	-sverilog +vcs+lic+wait +vc+list +vpi \
 	-timescale=1ns/1ps -v2k_generate +incdir+../rtl/lab_1/src
-=======
-	-sverilog +vcs+lic+wait +incdir+../rtl/lab_1/src\
-	-timescale=1ns/1ps
->>>>>>> 816a73cc3d8214aa7cb9b8b8a1f09a561a2f7ed0
->>>>>>> Stashed changes
 
 # VFLAG = +vcs+lic+wait -sverilog -kdb +vc+list +vpi\
 # 		+error+20 +lint=TFIPC-L +lint=IIMW-L +lint=GCWM-L +lint=CAWM-L \
@@ -47,17 +37,9 @@ run:
 	time ./simv +dump 2>&1 | tee run_2.log
 
 clean:
-<<<<<<< HEAD
 	rm -rf $(filter-out $(wildcard *.v *.sv *.py) makefile isa ,$(wildcard *))
 	rm -rf isa/hex/*.hex
 	rm -rf temp
-=======
-	rm -rf $(filter-out $(wildcard *.v) makefile $(wildcard *.sv) isa,$(wildcard *))
-	rm -rf isa/hex/*.hex
-<<<<<<< Updated upstream
-=======
->>>>>>> 816a73cc3d8214aa7cb9b8b8a1f09a561a2f7ed0
->>>>>>> Stashed changes
 
 #test
 tt:
