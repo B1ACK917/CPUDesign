@@ -1,7 +1,7 @@
 `ifndef CSR_V
 `define CSR_V
 
-`include "../params.vh"
+`include "params.vh"
 
 module csr #(
    XLEN = 64,

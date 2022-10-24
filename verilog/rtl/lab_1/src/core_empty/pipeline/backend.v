@@ -2,7 +2,7 @@
 `ifndef BACKEND_V
 `define BACKEND_V
 
-`include "../params.vh"
+`include "params.vh"
 
 module backend (
     // global

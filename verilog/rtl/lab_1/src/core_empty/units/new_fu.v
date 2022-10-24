@@ -1,7 +1,7 @@
 `ifndef FU_V
 `define FU_V
 
-`include "../params.vh"
+`include "params.vh"
 module new_fu (
     // global
     input clk,

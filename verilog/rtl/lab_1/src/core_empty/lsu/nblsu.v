@@ -5,7 +5,7 @@
 /////////////////////////
 `ifndef NBLSU_V
 `define NBLSU_V
-`include "../params.vh"
+`include "params.vh"
 module nblsu (
     // global input 
     input clk,

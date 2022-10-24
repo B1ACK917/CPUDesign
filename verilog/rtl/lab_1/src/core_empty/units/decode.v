@@ -1,7 +1,7 @@
 `ifndef DECODE_V
 `define DECODE_V
 
-`include "../params.vh"
+`include "params.vh"
 module decode (
     input clk,
     input rstn,

@@ -1,5 +1,5 @@
 
-`include "../params.vh"
+`include "params.vh"
 module mmu_sv39
     #(
     parameter PTE_SIZE = 8,

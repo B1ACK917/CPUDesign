@@ -6,7 +6,7 @@
 `ifndef LSQ_V
 `define LSQ_V
 
-`include "../params.vh"
+`include "params.vh"
 
 module lsq (
     // global input 

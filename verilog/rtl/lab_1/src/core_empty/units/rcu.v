@@ -1,5 +1,5 @@
 // `include "/work/stu/yzhang/workspace/hehecore/src/params.vh"
-`include "../params.vh"
+`include "params.vh"
 module rcu (
     //input
     input clk,

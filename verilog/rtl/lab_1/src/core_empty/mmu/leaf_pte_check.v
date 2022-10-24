@@ -1,4 +1,4 @@
-`include "../params.vh"
+`include "params.vh"
 module leaf_pte_check
     #(
     parameter PTE_SIZE_IN_BIT = 64

@@ -1,7 +1,7 @@
 `ifndef FRONTEND_V
 `define FRONTEND_V
 
-`include "../params.vh"
+`include "params.vh"
 //lint pass
 module frontend (
     // global

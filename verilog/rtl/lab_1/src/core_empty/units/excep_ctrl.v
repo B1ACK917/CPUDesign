@@ -1,4 +1,4 @@
-`include "../params.vh"
+`include "params.vh"
 module excep_ctrl (
     //from rob
     input rob_commit_valid,
