@@ -220,7 +220,7 @@ Tue Oct 25 11:32:54 2022
 
 ### 1.3 Spike model + GreenRio RTL co-simulation system
 
-#### 1.4 You need to run the elf file on the spike emulator and print the log
+#### 1.3.1 You need to run the elf file on the spike emulator and print the log
 
 ```shell
 [dwfeng@server1 tb]$ spike -l isa/elf/rv64ui-p-add > log/rv64ui-p-add.log 2>&1
@@ -254,7 +254,7 @@ core   0: 0x000000008000007c (0x00000713) li      a4, 0
 
 Full log located in `verilog/tb/log/rv64ui-p-add.log`
 
-#### 1.5 You need to have GreenRio run the risc-v elf in an RTL simulation environment and get the corresponding results
+#### 1.3.2 You need to have GreenRio run the risc-v elf in an RTL simulation environment and get the corresponding results
 
 **physical_regfile monitor**
 
@@ -325,3 +325,29 @@ end
 when a write behavior happens in rcu, log will be output.
 
 <img src="asset/image-20221025145241521.png" alt="image-20221025145241521" style="zoom:50%;" />
+
+#### 1.3.3 Spike + RTL co-sim
+
+## 2 Open EDA flow
+
+### 2.1 GreenRio core logic synthesis by yosys (use 2 libs as different conrer)
+
+**First kind libs**
+
+```verilog
+set ::env(LIB_SYNTH) "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/$::env(STD_CELL_LIBRARY)/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+set ::env(LIB_FASTEST) "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/$::env(STD_CELL_LIBRARY)/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+set ::env(LIB_SLOWEST) "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/$::env(STD_CELL_LIBRARY)/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+```
+
+**Second kind libs**
+
+```verilog
+set ::env(LIB_SYNTH) "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/$::env(STD_CELL_LIBRARY)/lib/sky130_fd_sc_hd__tt_100C_1v80.lib"
+set ::env(LIB_FASTEST) "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/$::env(STD_CELL_LIBRARY)/lib/sky130_fd_sc_hd__ff_100C_1v95.lib"
+set ::env(LIB_SLOWEST) "$::env(PDK_ROOT)/$::env(PDK)/libs.ref/$::env(STD_CELL_LIBRARY)/lib/sky130_fd_sc_hd__ss_N40C_1v60.lib"
+```
+
+
+
+### 2.2 GreenRio core gate level netlist + Spike co-sim execution correctness
