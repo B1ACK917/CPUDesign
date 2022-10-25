@@ -222,3 +222,37 @@ Tue Oct 25 11:32:54 2022
 [dwfeng@server1 tb]$ 
 ```
 
+### 1.3 Spike model + GreenRio RTL co-simulation system
+
+#### 1.4 You need to run the elf file on the spike emulator and print the log
+
+```shell
+[dwfeng@server1 tb]$ spike -l isa/elf/rv64ui-p-add > log/rv64ui-p-add.log 2>&1
+```
+
+Part of the log:
+
+```c++
+core   0: 0x0000000000001000 (0x00000297) auipc   t0, 0x0
+core   0: 0x0000000000001004 (0x02028593) addi    a1, t0, 32
+core   0: 0x0000000000001008 (0xf1402573) csrr    a0, mhartid
+core   0: 0x000000000000100c (0x0182b283) ld      t0, 24(t0)
+core   0: 0x0000000000001010 (0x00028067) jr      t0
+core   0: 0x0000000080000000 (0x0480006f) j       pc + 0x48
+core   0: 0x0000000080000048 (0x00000093) li      ra, 0
+core   0: 0x000000008000004c (0x00000113) li      sp, 0
+core   0: 0x0000000080000050 (0x00000193) li      gp, 0
+core   0: 0x0000000080000054 (0x00000213) li      tp, 0
+core   0: 0x0000000080000058 (0x00000293) li      t0, 0
+core   0: 0x000000008000005c (0x00000313) li      t1, 0
+core   0: 0x0000000080000060 (0x00000393) li      t2, 0
+core   0: 0x0000000080000064 (0x00000413) li      s0, 0
+core   0: 0x0000000080000068 (0x00000493) li      s1, 0
+core   0: 0x000000008000006c (0x00000513) li      a0, 0
+core   0: 0x0000000080000070 (0x00000593) li      a1, 0
+core   0: 0x0000000080000074 (0x00000613) li      a2, 0
+core   0: 0x0000000080000078 (0x00000693) li      a3, 0
+core   0: 0x000000008000007c (0x00000713) li      a4, 0
+....
+```
+
