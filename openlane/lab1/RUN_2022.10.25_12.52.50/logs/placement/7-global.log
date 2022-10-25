@@ -1,0 +1,42 @@
+OpenROAD 4174c3ad802d2ac1d04d387d2c4b883903f6647e 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO]: Setting RC values...
+[INFO]: Setting signal min routing layer to: met1 and clock min routing layer to met1. 
+[INFO]: Setting signal max routing layer to: met4 and clock max routing layer to met4. 
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: 460 2720
+[INFO GPL-0004] CoreAreaLxLy: 5520 10880
+[INFO GPL-0005] CoreAreaUxUy: 1914060 1906720
+[INFO GPL-0006] NumInstances: 105093
+[INFO GPL-0007] NumPlaceInstances: 51973
+[INFO GPL-0008] NumFixedInstances: 53120
+[INFO GPL-0009] NumDummyInstances: 0
+[INFO GPL-0010] NumNets: 52046
+[INFO GPL-0011] NumPins: 188757
+[INFO GPL-0012] DieAreaLxLy: 0 0
+[INFO GPL-0013] DieAreaUxUy: 1920000 1920000
+[INFO GPL-0014] CoreAreaLxLy: 5520 10880
+[INFO GPL-0015] CoreAreaUxUy: 1914060 1906720
+[INFO GPL-0016] CoreArea: 3618286473600
+[INFO GPL-0017] NonPlaceInstsArea: 69952089600
+[INFO GPL-0018] PlaceInstsArea: 561338368000
+[INFO GPL-0019] Util(%): 15.82
+[INFO GPL-0020] StdInstsArea: 561338368000
+[INFO GPL-0021] MacroInstsArea: 0
+[InitialPlace]  Iter: 1 CG residual: 0.00168074 HPWL: 806640920
+[InitialPlace]  Iter: 2 CG residual: 0.00004774 HPWL: 717985437
+[InitialPlace]  Iter: 3 CG residual: 0.00000600 HPWL: 718425283
+[InitialPlace]  Iter: 4 CG residual: 0.00000750 HPWL: 719407997
+[InitialPlace]  Iter: 5 CG residual: 0.00000793 HPWL: 717538731
+[INFO GPL-0031] FillerInit: NumGCells: 119579
+[INFO GPL-0032] FillerInit: NumGNets: 52046
+[INFO GPL-0033] FillerInit: NumGPins: 188757
+[INFO GPL-0023] TargetDensity: 0.36
+[INFO GPL-0024] AveragePlaceInstArea: 10800576
+[INFO GPL-0025] IdealBinArea: 30001598
+[INFO GPL-0026] IdealBinCnt: 120603
+[INFO GPL-0027] TotalBinArea: 3618286473600
+[INFO GPL-0028] BinCnt: 256 256
+[INFO GPL-0029] BinSize: 7456 7406
+[INFO GPL-0030] NumBins: 65536
