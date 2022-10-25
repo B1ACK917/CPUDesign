@@ -90,4 +90,13 @@ module physical_regfile #(
         end
     end
     end
+
+`ifdef CPLUG
+import "DPI-C" function void reg_monitor(input reg alu_valid, input reg lsu_valid, input int alu_data_in, input int lsu_data_in,input int alu_address, input int lsu_address);
+
+always@(negedge clk) begin
+    reg_monitor(alu_valid,lsu_valid,prd_data_alu[31:0],prd_data_lsu[31:0],prd_address_alu,prd_address_lsu);
+end
+`endif
+
 endmodule

@@ -582,6 +582,14 @@ end
     end
   end
 
+`ifdef CPLUG
+import "DPI-C" function void inst_log(input int instruction);
+
+always@(negedge clk) begin
+    inst_log(instr);
+end
+`endif
+
 endmodule
 
 `endif  // DECODE_V

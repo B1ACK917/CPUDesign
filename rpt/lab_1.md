@@ -32,11 +32,6 @@ VCSFLAG = -full64 +v2k -kdb -debug_access+all +define+dumpon \
 	-sverilog +vcs+lic+wait +vc+list +vpi \
 	-timescale=1ns/1ps -v2k_generate +incdir+../rtl/lab_1/src
 
-# VFLAG = +vcs+lic+wait -sverilog -kdb +vc+list +vpi\
-# 		+error+20 +lint=TFIPC-L +lint=IIMW-L +lint=GCWM-L +lint=CAWM-L \
-# 		+lint=PCWM-L -full64 -timescale=1ns/1ps \
-# 		-v2k_generate -debug_access+all +incdir+../rtl/lab_1/src
-
 ELF2HEX = elf2hex.py
 ELFPATH = isa/elf
 ELFFILE += $(notdir $(foreach p,$(ELFPATH),$(wildcard $(p)/*)))
@@ -53,12 +48,13 @@ hex:
 	done
 
 run:
+	$(shell if [ ! -d log ]; then mkdir log; fi;)
 	./simv 2>&1 | tee run.log
 
 all: hex compile run
 
 clean:
-	rm -rf $(filter-out $(wildcard *.v *.sv *.py) makefile isa ,$(wildcard *))
+	rm -rf $(filter-out $(wildcard *.v *.sv *.py) makefile isa log,$(wildcard *))
 	rm -rf isa/hex/*.hex
 	rm -rf temp
 
@@ -253,6 +249,79 @@ core   0: 0x0000000080000070 (0x00000593) li      a1, 0
 core   0: 0x0000000080000074 (0x00000613) li      a2, 0
 core   0: 0x0000000080000078 (0x00000693) li      a3, 0
 core   0: 0x000000008000007c (0x00000713) li      a4, 0
-....
+...
 ```
 
+Full log located in `verilog/tb/log/rv64ui-p-add.log`
+
+#### 1.5 You need to have GreenRio run the risc-v elf in an RTL simulation environment and get the corresponding results
+
+**physical_regfile monitor**
+
+cpp function, monitor the regfile change when alu/lsu data input.
+
+```c++
+extern void reg_monitor(svLogic alu_valid, svLogic lsu_valid, int alu_data_in,
+                        int lsu_data_in, int alu_address, int lsu_address) {
+    if (alu_valid & (alu_address != 0)) {
+        printf("reg %d changed. %d -> %d\n",alu_address,preg[alu_address],alu_data_in);
+        preg[alu_address] = alu_data_in;
+    }
+    if (lsu_valid & (lsu_address != 0)) {
+        printf("reg %d changed. %d -> %d\n",lsu_address,preg[lsu_address],lsu_data_in);
+        preg[lsu_address] = lsu_data_in;
+    }
+    preg[0] = 0;
+    return;
+}
+```
+
+plug in verilog
+
+```verilog
+`ifdef CPLUG
+import "DPI-C" function void reg_monitor(input reg alu_valid, input reg lsu_valid, input int alu_data_in, input int lsu_data_in,input int alu_address, input int lsu_address);
+
+always@(negedge clk) begin
+    reg_monitor(alu_valid,lsu_valid,prd_data_alu[31:0],prd_data_lsu[31:0],prd_address_alu,prd_address_lsu);
+end
+`endif
+```
+
+when a register changes, log will be output.
+
+<img src="asset/image-20221025144757666.png" alt="image-20221025144757666" style="zoom:50%;" />
+
+**rcu monitor**
+
+cpp function, monitor the write behavior in rcu.
+
+```c++
+extern void rcu_monitor(svLogic rob_cm_valid, int rob_cm_exp_pc, int co_rob_rd,
+                        int co_prf_name) {
+    if (rob_cm_valid) {
+        printf("0x%08X\n", rob_cm_exp_pc);
+        if (co_rob_rd) {
+            printf("x%d <- %d\n", co_rob_rd, preg[co_prf_name]);
+        }
+    }
+    return;
+}
+```
+
+plug in verilog
+
+```verilog
+`ifdef CPLUG
+import "DPI-C" function void rcu_monitor(input reg rob_cm_valid, input int rob_cm_exp_pc, input int co_rob_rd, input int co_prf_name);
+wire [31:0] co_prf_name = {{26{1'b0}}, rob_prd[cm_rob_line]};
+wire [31:0] co_rob_rd ={ {27{1'b0}}, rob_rd[cm_rob_line]};
+always@(negedge clk) begin
+    rcu_monitor(rob_cm_valid,rob_cm_exp_pc,co_rob_rd,co_prf_name);
+end
+`endif
+```
+
+when a write behavior happens in rcu, log will be output.
+
+<img src="asset/image-20221025145241521.png" alt="image-20221025145241521" style="zoom:50%;" />

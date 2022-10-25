@@ -549,4 +549,13 @@ counter_rob  #(
 
 assign rob_iss_line_switch = rob_iss_is | rob_iss_skip;
 
+`ifdef CPLUG
+import "DPI-C" function void rcu_monitor(input reg rob_cm_valid, input int rob_cm_exp_pc, input int co_rob_rd, input int co_prf_name);
+wire [31:0] co_prf_name = {{26{1'b0}}, rob_prd[cm_rob_line]};
+wire [31:0] co_rob_rd ={ {27{1'b0}}, rob_rd[cm_rob_line]};
+always@(negedge clk) begin
+    rcu_monitor(rob_cm_valid,rob_cm_exp_pc,co_rob_rd,co_prf_name);
+end
+`endif
+
 endmodule
