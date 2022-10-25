@@ -9,7 +9,7 @@ RTLPATH = ../rtl/lab_1/src \
 
 RTLFILE += $(foreach p,$(RTLPATH),$(wildcard $(p)/*.v $(p)/*.sv))
 
-VCSFLAG = -full64 +v2k -kdb -debug_access+all \
+VCSFLAG = -full64 +v2k -kdb -debug_access+all +define+dumpon \
 	-sverilog +vcs+lic+wait +vc+list +vpi \
 	-timescale=1ns/1ps -v2k_generate +incdir+../rtl/lab_1/src
 
@@ -25,7 +25,7 @@ HEXFILE = $(addsuffix .hex, $(ELFFILE))
 
 #build simv
 compile:
-	vcs $(VCSFLAG) $(RTLFILE) -top hehe_tb
+	vcs $(VCSFLAG) $(RTLFILE) -top tb_hehe
 
 #build hex file
 hex:
@@ -34,7 +34,9 @@ hex:
 	done
 
 run:
-	time ./simv +dump 2>&1 | tee run_2.log
+	./simv 2>&1 | tee run.log
+
+all: hex compile run
 
 clean:
 	rm -rf $(filter-out $(wildcard *.v *.sv *.py) makefile isa ,$(wildcard *))
