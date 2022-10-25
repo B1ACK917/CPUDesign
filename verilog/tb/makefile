@@ -8,8 +8,9 @@ RTLPATH = ../rtl/lab_1/src \
 	.
 
 RTLFILE += $(foreach p,$(RTLPATH),$(wildcard $(p)/*.v $(p)/*.sv))
+CFILE = plug.cpp
 
-VCSFLAG = -full64 +v2k -kdb -debug_access+all +define+dumpon \
+VCSFLAG = -full64 +v2k -kdb -debug_access+all +define+DUMPON+CPLUG \
 	-sverilog +vcs+lic+wait +vc+list +vpi \
 	-timescale=1ns/1ps -v2k_generate +incdir+../rtl/lab_1/src
 
@@ -25,21 +26,22 @@ HEXFILE = $(addsuffix .hex, $(ELFFILE))
 
 #build simv
 compile:
-	vcs $(VCSFLAG) $(RTLFILE) -top tb_hehe
+	vcs $(VCSFLAG) $(RTLFILE) $(CFILE) -top tb_hehe
 
 #build hex file
 hex:
 	for x in $(ELFFILE); do \
-	 python3 $(ELF2HEX) --bit-width 128 --infile isa/elf/$$x --outfile isa/hex/$$x.hex; \
+	 python3 $(ELF2HEX) --bit-width 32 --infile isa/elf/$$x --outfile isa/hex/$$x.hex; \
 	done
 
 run:
+	$(shell if [ ! -d log ]; then mkdir log; fi;)
 	./simv 2>&1 | tee run.log
 
 all: hex compile run
 
 clean:
-	rm -rf $(filter-out $(wildcard *.v *.sv *.py) makefile isa ,$(wildcard *))
+	rm -rf $(filter-out $(wildcard *.v *.sv *.py *.cpp) makefile isa log,$(wildcard *))
 	rm -rf isa/hex/*.hex
 	rm -rf temp
 

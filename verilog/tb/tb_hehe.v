@@ -9,7 +9,7 @@ parameter VIRTUAL_ADDR_LEN  = 32;
 parameter WB_DATA_LEN       = 32;
 
 initial begin
-    `ifdef dumpon
+    `ifdef DUMPON
         $vcdpluson();
         $fsdbDumpvars("+all");
         $fsdbDumpon;
