@@ -12,7 +12,7 @@
 
 ![image-20221024105455348](asset/image-20221024105455348.png)
 
-### 1.2 GreenRio core RTL
+### 1.2 GreenRio core RTL (Code placed at verilog/tb)
 
 #### makefile
 
@@ -325,6 +325,8 @@ end
 when a write behavior happens in rcu, log will be output.
 
 <img src="asset/image-20221025145241521.png" alt="image-20221025145241521" style="zoom:50%;" />
+
+**Full code placed at verilog/tb folder, and modified verilog/rtl/lab_1/src/core_empty/units/regfile.v and rcu.v**
 
 #### 1.3.3 Spike + RTL co-sim
 
