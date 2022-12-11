@@ -13,23 +13,23 @@
 
 class RAM {
 private:
-    int base_;   // Memory Start
-    int size_;   // Memory Size
-    char *ram_;  // Memory Content
-    bool checkRange(int address);
+    uint64_t base_;   // Memory Start
+    uint64_t size_;   // Memory Size
+    u_char *ram_;  // Memory Content
+    bool checkRange(uint64_t address);
     
 public:
     RAM();
-    RAM(const int base, const int length);
+    RAM(const uint64_t base, const uint64_t length);
     ~RAM();
-    const int& size();
-    const int& base();
-    RunCode readByte(int address, char *dest);
-    RunCode readWord(int address, int *dest);
-    RunCode read(int address, char *data, int len);
-    RunCode write(int address, char *data, int len);
-    RunCode writeByte(int address, char data);
-    RunCode writeWord(int address, int data);
+    const uint64_t& size();
+    const uint64_t& base();
+    RunCode readByte(uint64_t address, u_char *dest);
+    RunCode readWord(uint64_t address, uint32_t *dest);
+    RunCode read(uint64_t address, u_char *data, uint64_t len);
+    RunCode write(uint64_t address, u_char *data, uint64_t len);
+    RunCode writeByte(uint64_t address, u_char data);
+    RunCode writeWord(uint64_t address, uint32_t data);
     void show();
 };
 

@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include "Memory.hpp"
-#include "HexLoader.hpp"
+#include "Func.hpp"
 
 class TestUnit {
     

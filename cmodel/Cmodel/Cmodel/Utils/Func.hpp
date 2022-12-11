@@ -10,9 +10,9 @@
 
 #include "Macros.hpp"
 #include "Consts.hpp"
-#include "HexLoader.hpp"
 #include "Memory.hpp"
 
+RunCode LoadHexToRAM(string hexfile,RAM& dest);
 RAM* InitDRAMFromFile(string filename);
 
 #endif /* Func_hpp */
