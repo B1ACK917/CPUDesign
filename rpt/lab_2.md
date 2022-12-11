@@ -79,11 +79,11 @@ Test RAM, load the hex file to ram.
 
 Part of the hex file:
 
-<img src="/Users/cyberdz/Github/CPUDesign/rpt/asset/image-20221210185216415.png" alt="image-20221210185216415" style="zoom:33%;" />
+<img src="./asset/image-20221210185216415.png" alt="image-20221210185216415" style="zoom:33%;" />
 
 Load the hex to RAM:
 
-<img src="/Users/cyberdz/Github/CPUDesign/rpt/asset/image-20221211211536010.png" alt="image-20221211211536010" style="zoom:50%;" />
+<img src="./asset/image-20221211211536010.png" alt="image-20221211211536010" style="zoom:50%;" />
 
 ### PC Generator
 
@@ -117,7 +117,7 @@ RunCode FU::update() {
 
 Test Fetch Unit:
 
-<img src="/Users/cyberdz/Github/CPUDesign/rpt/asset/image-20221211211452690.png" alt="image-20221211211452690" style="zoom:50%;" />
+<img src="./asset/image-20221211211452690.png" alt="image-20221211211452690" style="zoom:50%;" />
 
 ### Decoder
 
