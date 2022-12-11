@@ -19,10 +19,10 @@ private:
 public:
     BUS();
     RunCode Init(RAM* ram);
-    RunCode readByte(uint64_t address,u_char* dest);
-    RunCode readWord(uint64_t address,uint32_t* dest);
-    RunCode writeByte(uint64_t address, u_char data);
-    RunCode writeWord(uint64_t address, uint32_t data);
+    RunCode readByte(uint32_t address,u_char* dest);
+    RunCode readWord(uint32_t address,uint32_t* dest);
+    RunCode writeByte(uint32_t address, u_char data);
+    RunCode writeWord(uint32_t address, uint32_t data);
 };
 
 #endif /* Bus_hpp */

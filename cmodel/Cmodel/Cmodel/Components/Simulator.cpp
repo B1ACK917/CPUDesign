@@ -11,6 +11,7 @@ Simulator::Simulator() {
     this->dram_=nullptr;
     this->cpu_=nullptr;
     this->bus_=nullptr;
+    first_tick_=true;
 }
 
 Simulator::~Simulator() {
@@ -56,18 +57,22 @@ RunCode Simulator::Init() {
 }
 
 RunCode Simulator::Tick() {
-    uint32_t instruction;
-    if(this->cpu_->Fetch(&instruction)!=Success) {
+    if(!first_tick_) {
+        if(this->cpu_->GenPC()!=Success) {
+            cerr<<"Genarate PC Failed"<<endl;
+            return PCGenExecption;
+        }
+    }
+    
+    if(this->cpu_->Fetch()!=Success) {
         cerr<<"CPU Fetch Failed"<<endl;
         return FetchExecption;
     }
-#ifdef FETCHDEBUG
-    cout<<FHEX(instruction)<<endl;
-    cout<<"Inst: "<<FBIN(instruction, 32)<<endl;
-#endif
-    if(this->cpu_->Decode(instruction)!=Success) {
+    
+    if(this->cpu_->Decode()!=Success) {
         cerr<<"CPU Decode Failed"<<endl;
         return DecodeExecption;
     }
+    first_tick_=false;
     return Success;
 }

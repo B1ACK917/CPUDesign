@@ -7,8 +7,12 @@
 
 #include "Decode.hpp"
 
-RunCode Decoder::run(uint32_t inst_word) {
-    StaticInsn instr(inst_word);
+Decoder::Decoder(id_intf_t* intf) {
+    this->id_intf=intf;
+}
+
+RunCode Decoder::update() {
+    StaticInsn instr(id_intf->instruction_in);
     switch (instr.opcode()) {
         case OpcodeLoadFp:
             ;

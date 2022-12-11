@@ -16,18 +16,18 @@ RunCode BUS::Init(RAM* ram) {
     return Success;
 }
 
-RunCode BUS::readByte(uint64_t address,u_char* dest) {
+RunCode BUS::readByte(uint32_t address,u_char* dest) {
     return this->ram_->readByte(address, dest);
 }
 
-RunCode BUS::readWord(uint64_t address,uint32_t* dest) {
+RunCode BUS::readWord(uint32_t address,uint32_t* dest) {
     return this->ram_->readWord(address, dest);
 }
 
-RunCode BUS::writeByte(uint64_t address, u_char data) {
+RunCode BUS::writeByte(uint32_t address, u_char data) {
     return this->ram_->writeByte(address, data);
 }
 
-RunCode BUS::writeWord(uint64_t address, uint32_t data) {
+RunCode BUS::writeWord(uint32_t address, uint32_t data) {
     return this->ram_->writeWord(address, data);
 }

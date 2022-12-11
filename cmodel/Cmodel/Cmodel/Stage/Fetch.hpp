@@ -1,25 +1,26 @@
 //
-//  Decode.hpp
+//  Fetch.hpp
 //  Cmodel
 //
 //  Created by 冯大纬 on 2022/12/11.
 //
 
-#ifndef Decode_hpp
-#define Decode_hpp
+#ifndef Fetch_hpp
+#define Fetch_hpp
 
-#include "Consts.hpp"
 #include "Macros.hpp"
+#include "Consts.hpp"
 #include "Interfaces.hpp"
 #include "InstructionBlock.hpp"
 
-class Decoder {
+// Fetch Unit
+class FU {
 private:
-    id_intf_t* id_intf;
+    if_intf_t* if_intf;
     
 public:
-    Decoder(id_intf_t* intf);
+    FU(if_intf_t* intf);
     RunCode update();
 };
 
-#endif /* Decode_hpp */
+#endif /* Fetch_hpp */

@@ -19,6 +19,7 @@ private:
     RAM* dram_;
     CPU* cpu_;
     BUS* bus_;
+    bool first_tick_;
     
 public:
     Simulator();

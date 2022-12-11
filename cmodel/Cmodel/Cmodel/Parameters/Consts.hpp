@@ -25,6 +25,7 @@ enum RunCode { Success,
     MemoryViolationExecption,
     FileNotExistsExecption,
     MemoryLoadExecption,
+    PCGenExecption,
     FetchExecption,
     DecodeExecption
 };

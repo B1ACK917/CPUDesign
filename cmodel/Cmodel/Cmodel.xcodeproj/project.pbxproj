@@ -15,6 +15,8 @@
 		5604A9082945C3A0000D3212 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5604A9062945C3A0000D3212 /* Core.cpp */; };
 		5604A90B2945C6E7000D3212 /* Bus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5604A9092945C6E7000D3212 /* Bus.cpp */; };
 		5604A9112945EA94000D3212 /* InstructionBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5604A90F2945EA94000D3212 /* InstructionBlock.cpp */; };
+		5604A9142945FB3E000D3212 /* PCGen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5604A9122945FB3E000D3212 /* PCGen.cpp */; };
+		5604A9172945FD85000D3212 /* Fetch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5604A9152945FD85000D3212 /* Fetch.cpp */; };
 		56211A8C29443F3B005B34B2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56211A8B29443F3B005B34B2 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,10 @@
 		5604A90D2945DDD2000D3212 /* Interfaces.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Interfaces.hpp; sourceTree = "<group>"; };
 		5604A90F2945EA94000D3212 /* InstructionBlock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InstructionBlock.cpp; sourceTree = "<group>"; };
 		5604A9102945EA94000D3212 /* InstructionBlock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstructionBlock.hpp; sourceTree = "<group>"; };
+		5604A9122945FB3E000D3212 /* PCGen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PCGen.cpp; sourceTree = "<group>"; };
+		5604A9132945FB3E000D3212 /* PCGen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PCGen.hpp; sourceTree = "<group>"; };
+		5604A9152945FD85000D3212 /* Fetch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Fetch.cpp; sourceTree = "<group>"; };
+		5604A9162945FD85000D3212 /* Fetch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Fetch.hpp; sourceTree = "<group>"; };
 		56211A8829443F3B005B34B2 /* Cmodel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cmodel; sourceTree = BUILT_PRODUCTS_DIR; };
 		56211A8B29443F3B005B34B2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		56211AA72944468A005B34B2 /* Consts.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Consts.hpp; sourceTree = "<group>"; };
@@ -97,6 +103,10 @@
 		5604A8FF2945BD72000D3212 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
+				5604A9122945FB3E000D3212 /* PCGen.cpp */,
+				5604A9132945FB3E000D3212 /* PCGen.hpp */,
+				5604A9152945FD85000D3212 /* Fetch.cpp */,
+				5604A9162945FD85000D3212 /* Fetch.hpp */,
 				5604A9032945BDAF000D3212 /* Decode.cpp */,
 				5604A9042945BDAF000D3212 /* Decode.hpp */,
 			);
@@ -200,10 +210,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5604A9082945C3A0000D3212 /* Core.cpp in Sources */,
+				5604A9172945FD85000D3212 /* Fetch.cpp in Sources */,
 				5604A90B2945C6E7000D3212 /* Bus.cpp in Sources */,
 				5604A8F82945BB57000D3212 /* Simulator.cpp in Sources */,
 				56211A8C29443F3B005B34B2 /* main.cpp in Sources */,
 				5604A9112945EA94000D3212 /* InstructionBlock.cpp in Sources */,
+				5604A9142945FB3E000D3212 /* PCGen.cpp in Sources */,
 				5604A8A629447EF1000D3212 /* test.cpp in Sources */,
 				5604A8F529449D94000D3212 /* Func.cpp in Sources */,
 				5604A8EB2944814B000D3212 /* Memory.cpp in Sources */,
