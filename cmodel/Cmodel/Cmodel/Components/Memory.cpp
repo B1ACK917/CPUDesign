@@ -80,10 +80,12 @@ RunCode RAM::writeWord(int address, int data) {
 }
 
 void RAM::show() {
+    cout<<"-------RAM Content Start-------"<<endl;
     for(auto i=base_,cnt=1;i<size_;++i,++cnt) {
         cout<<*(ram_ + (i - base_));
-        if(cnt%(bitWidth/8)==0) {
+        if(cnt%(BIT_WIDTH/8)==0) {
             cout<<endl;
         }
     }
+    cout<<"-------RAM Content End-------"<<endl;
 }

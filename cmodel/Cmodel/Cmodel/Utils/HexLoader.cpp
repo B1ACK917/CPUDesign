@@ -18,8 +18,10 @@ RunCode LoadHexToRAM(string hexfile,RAM& dest) {
     int byteCnt=0;
     auto RAMBase=dest.base();
     while(file>>readByte) {
-        dest.writeByte(RAMBase+byteCnt, readByte);
-        ++byteCnt;
+        if(dest.writeByte(RAMBase+byteCnt, readByte)==Success)
+            ++byteCnt;
+        else
+            return MemoryLoadExecption;
     }
     return Success;
 }

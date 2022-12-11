@@ -8,17 +8,23 @@
 #ifndef Macros_hpp
 #define Macros_hpp
 
+#define CDEBUG
+
 #include <assert.h>
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 #include <string>
 using std::string;
+
 #include <iostream>
 using std::cerr;
 using std::cin;
 using std::cout;
 using std::endl;
+
 #include <fstream>
 using std::ifstream;
 

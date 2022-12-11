@@ -2,7 +2,6 @@
 /precheck_results/
 */tmp
 */*/tmp
-*.hex*
 *.lst
 *.vcd
 *.gtkw
