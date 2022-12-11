@@ -56,9 +56,10 @@ RunCode CPU::Fetch() {
     if_intf->pc_in=this->pc_;
     auto rc=this->fetch_->update();
 #ifdef FETCHDEBUG
+    auto pc_in=if_intf->pc_in;
     auto instruction=if_intf->instruction_out;
-    cout<<FHEX(instruction)<<endl;
-    cout<<"Inst: "<<FBIN(instruction, 32)<<endl;
+    cout<<"Fetch Instruction ["<<FHEX(instruction)<<"] at PC {"<<FHEX(pc_in)<<"}"<<endl;
+    cout<<"BIN: "<<FBIN(instruction, 32)<<endl;
 #endif
     return rc;
 }

@@ -12,7 +12,7 @@ Decoder::Decoder(id_intf_t* intf) {
 }
 
 RunCode Decoder::update() {
-    StaticInsn instr(id_intf->instruction_in);
+    InstructionBlock instr(id_intf->instruction_in);
     switch (instr.opcode()) {
         case OpcodeLoadFp:
             ;

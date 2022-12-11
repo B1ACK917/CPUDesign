@@ -12,6 +12,7 @@ PCGenarator::PCGenarator(pc_gen_intf_t* intf) {
 }
 
 RunCode PCGenarator::update() {
+    //this->pc_gen_intf points to the signals connected to PCGenerator.
     this->pc_gen_intf->pc_out=this->pc_gen_intf->prev_pc+4;
     return Success;
 }
