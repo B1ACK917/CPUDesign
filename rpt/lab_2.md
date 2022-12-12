@@ -119,6 +119,10 @@ Test Fetch Unit:
 
 <img src="./asset/image-20221211211452690.png" alt="image-20221211211452690" style="zoom:50%;" />
 
+Strictly same as the assemble file:
+
+<img src="./asset/image-20221212110933954.png" alt="image-20221212110933954" style="zoom:50%;" />
+
 ### Decoder
 
 Although quite a lot of signals are connected to decoder, currently only `pc_in, instruction_in`and output signals are used.
