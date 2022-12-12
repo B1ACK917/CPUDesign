@@ -9,7 +9,7 @@
 #define Macros_hpp
 
 //#define MEM_DEBUG
-#define FETCH_DEBUG
+//#define FETCH_DEBUG
 #define DECODE_DEBUG
 
 #include <assert.h>
@@ -45,7 +45,13 @@ using std::vector;
 #define FBIN(x,num) "0b" << std::bitset<num>(x)
 
 // Format Assemble out
+
 #define FJ(x) "j "<<FHEX(x)<<";"
-#define FRRD(x1,x2,d) " x"<<uint32_t(x1)<<",x"<<uint32_t(x2)<<","<<FHEX(d)<<";"
+#define FJR(x) "j x"<<uint32_t(x)<<";"
+#define FRRI(x1,x2,d) " x"<<uint32_t(x1)<<",x"<<uint32_t(x2)<<","<<int(d)<<";"
+#define FRRHI(x1,x2,d) " x"<<uint32_t(x1)<<",x"<<uint32_t(x2)<<","<<FHEX(d)<<";"
+#define FRI(x,d) " x"<<uint32_t(x)<<","<<int(d)<<";"
+#define FRHI(x,d) " x"<<uint32_t(x)<<","<<FHEX(d)<<";"
+#define FRRR(x1,x2,x3) " x"<<uint32_t(x1)<<",x"<<uint32_t(x2)<<",x"<<uint32_t(x3)<<";"
 
 #endif /* Macros_hpp */

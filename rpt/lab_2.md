@@ -149,3 +149,7 @@ Test decode result:
 Strictly same as the assemble file:
 
 <img src="./asset/image-20221212125423828.png" alt="image-20221212125423828" style="zoom:50%;" />
+
+More clearly comparison:
+
+![image-20221212161829768](./asset/image-20221212161829768.png)
