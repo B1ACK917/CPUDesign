@@ -12,6 +12,7 @@
 #include "Macros.hpp"
 #include "Interfaces.hpp"
 #include "InstructionBlock.hpp"
+#include "InstructionCtrl.hpp"
 
 class Decoder {
 private:

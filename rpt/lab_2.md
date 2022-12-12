@@ -142,3 +142,10 @@ RunCode Decoder::update() {
 }
 ```
 
+Test decode result:
+
+<img src="./asset/image-20221212125310732.png" alt="image-20221212125310732" style="zoom:50%;" />
+
+Strictly same as the assemble file:
+
+<img src="./asset/image-20221212125423828.png" alt="image-20221212125423828" style="zoom:50%;" />

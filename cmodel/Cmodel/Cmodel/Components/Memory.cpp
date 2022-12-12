@@ -87,7 +87,7 @@ RunCode RAM::writeWord(uint32_t address, uint32_t data) {
 
 void RAM::show() {
     cout<<"-------RAM Content Start-------"<<endl;
-    for(uint32_t i=base_;i<size_;i+=4) {
+    for(uint32_t i=base_;i<base_+size_;i+=4) {
         uint32_t word;
         this->readWord(i, &word);
         cout<<FHEXI(word)<<endl;

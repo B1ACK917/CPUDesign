@@ -29,7 +29,7 @@ int main(int argc, const char *argv[]) {
         return -1;
     }
     
-#ifdef MEMDEBUG
+#ifdef MEM_DEBUG
     RAM_->show();
 #endif
     

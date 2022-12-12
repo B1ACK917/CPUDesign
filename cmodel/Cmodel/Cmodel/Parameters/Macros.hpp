@@ -8,8 +8,9 @@
 #ifndef Macros_hpp
 #define Macros_hpp
 
-//#define MEMDEBUG
-#define FETCHDEBUG
+//#define MEM_DEBUG
+#define FETCH_DEBUG
+#define DECODE_DEBUG
 
 #include <assert.h>
 
@@ -30,11 +31,21 @@ using std::endl;
 #include <fstream>
 using std::ifstream;
 
+#include <map>
+using std::map;
+
+#include <vector>
+using std::vector;
+
 // Format HEX, Format BIN
 #define FHEX_PAD std::right << std::setw(8) << std::setfill('0')
 #define FHEX(x) "0x" << std::hex << FHEX_PAD << x << std::dec
-#define FHEXI(x) std::hex << FHEX_PAD << x << std::dec // Instruction print, exact match with .dump
+#define FHEXI(x) std::hex << FHEX_PAD << x << std::dec // Instruction print, exact match with .hex
 #define FHEXC(x) std::hex << x << std::dec // Clean print - no padding, no prefix
 #define FBIN(x,num) "0b" << std::bitset<num>(x)
+
+// Format Assemble out
+#define FJ(x) "j "<<FHEX(x)<<";"
+#define FRRD(x1,x2,d) " x"<<uint32_t(x1)<<",x"<<uint32_t(x2)<<","<<FHEX(d)<<";"
 
 #endif /* Macros_hpp */

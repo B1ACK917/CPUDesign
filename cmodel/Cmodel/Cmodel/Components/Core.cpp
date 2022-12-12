@@ -9,7 +9,7 @@
 
 CPU::CPU() {
     memset(this->reg_, 0, 32*sizeof(uint64_t));
-    pc_=0;
+    pc_=DEFAULT_RAM_BASE;
     bus_=nullptr;
     pc_gen_intf=new pc_gen_intf_t;
     pc_gen_=new PCGenarator(pc_gen_intf);
@@ -55,11 +55,13 @@ RunCode CPU::Fetch() {
     if_intf->bus_ctrl=this->bus_;
     if_intf->pc_in=this->pc_;
     auto rc=this->fetch_->update();
-#ifdef FETCHDEBUG
-    auto pc_in=if_intf->pc_in;
-    auto instruction=if_intf->instruction_out;
-    cout<<"Fetch Instruction ["<<FHEX(instruction)<<"] at PC {"<<FHEX(pc_in)<<"}"<<endl;
-    cout<<"BIN: "<<FBIN(instruction, 32)<<endl;
+#ifdef FETCH_DEBUG
+    if(rc==Success) {
+        auto pc_in=if_intf->pc_in;
+        auto instruction=if_intf->instruction_out;
+        cout<<"Fetch Instruction ["<<FHEX(instruction)<<"] at PC {"<<FHEX(pc_in)<<"}"<<endl;
+//        cout<<"BIN: "<<FBIN(instruction, 32)<<endl;
+    }
 #endif
     return rc;
 }
