@@ -153,3 +153,51 @@ Strictly same as the assemble file:
 More clearly comparison:
 
 ![image-20221212161829768](./asset/image-20221212161829768.png)
+
+## Openlane
+
+<img src="./asset/image-20221217182700444.png" alt="image-20221217182700444" style="zoom:50%;" />
+
+Global routing:
+
+```
+[INFO]: Setting signal min routing layer to: met1 and clock min routing layer to met1. 
+[INFO]: Setting signal max routing layer to: met4 and clock max routing layer to met4. 
+-congestion_iterations 50 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met4
+[INFO GRT-0022] Global adjustment: 30%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 0.6150
+[INFO GRT-0019] Found 1 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 9149
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 139077
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal    1545680       1026308          33.60%
+met2       Vertical      1159260        771999          33.41%
+met3       Horizontal     772840        540150          30.11%
+met4       Vertical       540988        307484          43.16%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 272644
+[INFO GRT-0198] Via related Steiner nodes: 11711
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 337621
+[INFO GRT-0112] Final usage 3D: 1645053
+...
+```
+
+Full logs locate at `openlane/lab2`
